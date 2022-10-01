@@ -45,7 +45,7 @@ async function handleInput(e) {
             return
     }
 
-    // other code
+
     grid.cells.forEach(cell => cell.mergeTiles())
     const newTile = new Tile(gameboard)
     grid.randomEmptyCell().tile = newTile
