@@ -115,11 +115,11 @@ function canMoveDown() {
     return canMove(grid.cellsByColumn.map( col => [...col].reverse()))
 }
 
-function canMoveUp() {
+function canMoveLeft() {
     return canMove(grid.cellsByRow)
 }
 
-function canMoveDown() {
+function canMoveRight() {
     return canMove(grid.cellsByRow.map( row => [...row].reverse()))
 }
 
