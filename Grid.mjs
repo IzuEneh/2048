@@ -6,7 +6,6 @@ export default class Grid {
     #cells
 
     constructor(gridElement) {
-        console.log(gridElement)
         gridElement.style.setProperty("--grid-size", GRID_SIZE)
         gridElement.style.setProperty("--cell-size", `${CELL_SIZE}vmin`)
         gridElement.style.setProperty("--cell-gap", `${CELL_GAP}vmin`)
@@ -17,7 +16,6 @@ export default class Grid {
                 Math.floor(index / GRID_SIZE)
             )
         })
-        console.log(this.cells)
     }
 
     get cells() {
@@ -34,7 +32,7 @@ export default class Grid {
 
     get cellsByRow() {
         return this.#cells.reduce((cellGrid, cell) => {
-            cellGrid[cell.y] = cellGrid[cell.x] || []
+            cellGrid[cell.y] = cellGrid[cell.y] || []
             cellGrid[cell.y][cell.x] = cell
             return cellGrid
         }, [])
@@ -95,7 +93,7 @@ class Cell {
         this.#mergeTile.y = this.#y
     }
 
-    canAcept(tile) {
+    canAccept(tile) {
         return (
             this.tile == null || 
             this.mergeTile == null && this.tile.value === tile.value

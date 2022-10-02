@@ -14,8 +14,7 @@ function setupInput() {
 }
 
 async function handleInput(e) {
-    console.log(e)
-    switch (e) {
+    switch (e.key) {
         case "ArrowUp":
             if (!canMoveUp()) {
                 setupInput()
@@ -45,6 +44,7 @@ async function handleInput(e) {
             await moveRight()
             break
         default:
+            console.log("hitting default")
             setupInput()
             return
     }
@@ -85,6 +85,7 @@ function slideTiles(cells) {
         cells.flatMap(group => {
             const promises = []
             for (let i = 1; i < group.length; i++) {
+                
                 const cell = group[i]
                 if (cell.tile == null) continue
                 let lastValidCell
@@ -129,7 +130,7 @@ function canMoveRight() {
 
 function canMove(cells) {
     return cells.some(group  => {
-        return group.some((cells, index) => {
+        return group.some((cell, index) => {
             if (index === 0) return false
             if (cell.tile == null) return false
             const moveToCell  = group[index - 1]
