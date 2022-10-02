@@ -4,13 +4,17 @@ import Tile from "./Tile.mjs"
 const gameboard = document.getElementById("game-board")
 
 const grid = new Grid(gameboard)
-grid.randomEmptyCell(),tile = new Tile(gameboard)
+grid.randomEmptyCell().tile = new Tile(gameboard)
+grid.randomEmptyCell().tile = new Tile(gameboard)
+
+setupInput()
 
 function setupInput() {
     window.addEventListener("keydown", handleInput, { once: true })
 }
 
 async function handleInput(e) {
+    console.log(e)
     switch (e) {
         case "ArrowUp":
             if (!canMoveUp()) {

@@ -119,5 +119,5 @@ function createCellElements(gridElement) {
         gridElement.append(cell)
     }
 
-    return cell
+    return cells
 }
